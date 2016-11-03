@@ -10,10 +10,13 @@ class InputParamAndOutput {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the radius of circle");
         int r = s.nextInt();
-
-        Shape ourCircle = new Circle(r);
-        ourCircle.calculateArea();
-        ourCircle.calculatePerimeter();
+        if (r<0){
+            checkParamAlert();
+        }else {
+            Shape ourCircle = new Circle(r);
+            ourCircle.calculateArea();
+            ourCircle.calculatePerimeter();
+        }
     }
     static void inputRectangleParam(){
         Scanner s1 = new Scanner(System.in);
@@ -22,25 +25,33 @@ class InputParamAndOutput {
         System.out.println("Enter two sides of rectangle");
         int side1 = s1.nextInt();
         int side2 = s2.nextInt();
+        if (side1<0||side2<0){
+            checkParamAlert();
+        }
+        else {
+            Shape ourRectangle = new Rectangle(side1, side2);
+            ourRectangle.calculateArea();
+            ourRectangle.calculatePerimeter();
 
-        Shape ourRectangle = new Rectangle(side1,side2);
-        ourRectangle.calculateArea();
-        ourRectangle.calculatePerimeter();
-
-        Rectangle subTriangle = new Rectangle(side1,side2);
-        subTriangle.subTriangleCalculate();
+            Rectangle subTriangle = new Rectangle(side1, side2);
+            subTriangle.subTriangleCalculate();
+        }
     }
     static void inputSquareParam(){
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the side of square");
         int side = s.nextInt();
+        if (side<0){
+            checkParamAlert();
+        }
+        else {
+            Shape ourSquare = new Square(side);
+            ourSquare.calculateArea();
+            ourSquare.calculatePerimeter();
 
-        Shape ourSquare = new Square(side);
-        ourSquare.calculateArea();
-        ourSquare.calculatePerimeter();
-
-        Square subTriangle = new Square(side);
-        subTriangle.subTriangleCalculate1();
+            Square subTriangle = new Square(side);
+            subTriangle.subTriangleCalculate1();
+        }
     }
     static void inputTriangleParam() {
         Scanner s = new Scanner(System.in);
@@ -59,8 +70,12 @@ class InputParamAndOutput {
         ourTriangle.calculateArea();
         ourTriangle.calculatePerimeter();}
         else {
+            checkParamAlert();
             System.out.println("This triangle not exist!");
         }
+    }
+    private static void checkParamAlert(){
+        System.out.println("Wrong parameters!");
     }
     }
 
