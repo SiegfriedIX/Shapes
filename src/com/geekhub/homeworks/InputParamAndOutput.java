@@ -23,18 +23,18 @@ class InputParamAndOutput {
         System.out.println("Enter the first side of rectangle");
         Scanner s2 = new Scanner(System.in);
         System.out.println("Enter two sides of rectangle");
-        int side1 = s1.nextInt();
-        int side2 = s2.nextInt();
-        if (side1<0||side2<0){
+        int side4 = s1.nextInt();
+        int side5 = s2.nextInt();
+        if (side4<0||side5<0){
             checkParamAlert();
         }
         else {
-            Shape ourRectangle = new Rectangle(side1, side2);
+            Shape ourRectangle = new Rectangle(side4, side5);
             ourRectangle.calculateArea();
             ourRectangle.calculatePerimeter();
 
-            Rectangle subTriangle = new Rectangle(side1, side2);
-            subTriangle.subTriangleCalculate();
+            Triangle.SubTriangleForRect ourSubTr = new Triangle.SubTriangleForRect(side4,side5);
+            ourSubTr.subTriangleCalculate1();
         }
     }
     static void inputSquareParam(){
@@ -49,8 +49,8 @@ class InputParamAndOutput {
             ourSquare.calculateArea();
             ourSquare.calculatePerimeter();
 
-            Square subTriangle = new Square(side);
-            subTriangle.subTriangleCalculate1();
+            Triangle.SubTriangleForSquare ourSubTr =new Triangle.SubTriangleForSquare(side);
+            ourSubTr.subTriangleCalculate();
         }
     }
     static void inputTriangleParam() {
